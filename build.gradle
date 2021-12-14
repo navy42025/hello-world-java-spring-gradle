@@ -1,0 +1,39 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'application'
+}
+
+group 'com.nav'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = '1.11'
+
+repositories {
+    mavenCentral()
+}
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+application {
+    mainClassName = 'com.nav.HelloWorld'
+}
